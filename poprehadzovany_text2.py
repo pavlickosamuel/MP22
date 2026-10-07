@@ -1,5 +1,6 @@
 import random
 fr = open("poprehadzovany_text_vstup2.txt","r")
+
 text = []
 def pomiesaj(retazec):
     pismenka = list(retazec)
@@ -11,10 +12,10 @@ for line in fr:
     text.append(line)
 print("\n".join(text))
 text2 = []
-for l in text:
-    l = l.strip().split()
+for i in text:
+    i = i.strip().split()
     a = []
-    for word in l:
+    for word in i:
         znak = []
         slovo = []
         for pismenka in word:
@@ -32,5 +33,9 @@ for l in text:
         else:
             a.append("".join(slovo[0]) + pomiesaj(temp) + "".join(slovo[-1]))
     text2.append(" ".join(a))
+
 print()
 print("\n".join(text2))
+fw = open("poprehadzovany_text.txt","w")
+fw.write("\n".join(text2))
+fw.close()
